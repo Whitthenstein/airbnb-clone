@@ -19,7 +19,7 @@ export async function POST(request: Request) {
 
   const listingAndReservation = await prisma.listing.update({
     where: {
-      id: listingId,
+      id: listingId
     },
     data: {
       reservations: {
@@ -27,10 +27,10 @@ export async function POST(request: Request) {
           userId: currentUser.id,
           startDate,
           endDate,
-          totalPrice,
-        },
-      },
-    },
+          totalPrice
+        }
+      }
+    }
   });
 
   return NextResponse.json(listingAndReservation);

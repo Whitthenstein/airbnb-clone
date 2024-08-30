@@ -11,11 +11,7 @@ interface DatePickerProps {
   disabledDates?: Date[];
 }
 
-const DatePicker: React.FC<DatePickerProps> = ({
-  value,
-  onChange,
-  disabledDates,
-}) => {
+const DatePicker: React.FC<DatePickerProps> = ({ value, onChange, disabledDates }) => {
   return (
     <DateRange
       rangeColors={["#262626"]}

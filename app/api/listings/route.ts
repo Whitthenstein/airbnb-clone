@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     bathroomCount,
     guestCount,
     location,
-    price,
+    price
   } = body;
 
   Object.keys(body).forEach((value: any) => {
@@ -40,8 +40,8 @@ export async function POST(request: Request) {
       guestCount,
       locationValue: location.value,
       price: parseInt(price, 10),
-      userId: currentUser.id,
-    },
+      userId: currentUser.id
+    }
   });
 
   return NextResponse.json(listing);

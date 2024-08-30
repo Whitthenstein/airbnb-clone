@@ -18,7 +18,7 @@ import Heading from "../Heading";
 enum STEPS {
   LOCATION = 0,
   DATE = 1,
-  INFO = 2,
+  INFO = 2
 }
 
 const SearchModal = () => {
@@ -35,13 +35,13 @@ const SearchModal = () => {
   const [dateRange, setDateRange] = useState<Range>({
     startDate: new Date(),
     endDate: new Date(),
-    key: "selection",
+    key: "selection"
   });
 
   const Map = useMemo(
     () =>
       dynamic(() => import("../Map"), {
-        ssr: false,
+        ssr: false
       }),
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -72,7 +72,7 @@ const SearchModal = () => {
       locationValue: location?.value,
       guestCount,
       roomCount,
-      bathroomCount,
+      bathroomCount
     };
 
     if (dateRange.startDate) {
@@ -86,7 +86,7 @@ const SearchModal = () => {
     const url = qs.stringifyUrl(
       {
         url: "/",
-        query: updatedQuery,
+        query: updatedQuery
       },
       { skipNull: true }
     );
@@ -104,7 +104,7 @@ const SearchModal = () => {
     dateRange,
     onNext,
     bathroomCount,
-    params,
+    params
   ]);
 
   const actionLabel = useMemo(() => {
@@ -125,10 +125,7 @@ const SearchModal = () => {
 
   let bodyContent = (
     <div className="flex flex-col gap-8">
-      <Heading
-        title="Where do you wanna go?"
-        subtitle="Find the perfect location!"
-      />
+      <Heading title="Where do you wanna go?" subtitle="Find the perfect location!" />
       <CountrySelect
         value={location}
         onChange={(value) => setLocation(value as CountrySelectValue)}
@@ -141,14 +138,8 @@ const SearchModal = () => {
   if (step === STEPS.DATE) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Heading
-          title="When do you plan to go?"
-          subtitle="Make sure everyone is free!"
-        />
-        <Calendar
-          onChange={(value) => setDateRange(value.selection)}
-          value={dateRange}
-        />
+        <Heading title="When do you plan to go?" subtitle="Make sure everyone is free!" />
+        <Calendar onChange={(value) => setDateRange(value.selection)} value={dateRange} />
       </div>
     );
   }
@@ -156,10 +147,7 @@ const SearchModal = () => {
   if (step === STEPS.INFO) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Heading
-          title="More information"
-          subtitle="Find your perfect place!"
-        />
+        <Heading title="More information" subtitle="Find your perfect place!" />
         <Counter
           onChange={(value) => setGuestCount(value)}
           value={guestCount}

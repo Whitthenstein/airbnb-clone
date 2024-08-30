@@ -24,7 +24,7 @@ enum STEPS {
   INFO = 2,
   IMAGES = 3,
   DESCRIPTION = 4,
-  PRICE = 5,
+  PRICE = 5
 }
 
 const RentModal = () => {
@@ -40,7 +40,7 @@ const RentModal = () => {
     setValue,
     watch,
     formState: { errors },
-    reset,
+    reset
   } = useForm<FieldValues>({
     defaultValues: {
       category: "",
@@ -51,8 +51,8 @@ const RentModal = () => {
       imageSrc: "",
       price: 1,
       title: "",
-      description: "",
-    },
+      description: ""
+    }
   });
 
   const location = watch("location");
@@ -65,7 +65,7 @@ const RentModal = () => {
   const Map = useMemo(
     () =>
       dynamic(() => import("../Map"), {
-        ssr: false,
+        ssr: false
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [location]
@@ -75,7 +75,7 @@ const RentModal = () => {
     setValue(id, value, {
       shouldDirty: true,
       shouldTouch: true,
-      shouldValidate: true,
+      shouldValidate: true
     });
   };
 
@@ -129,25 +129,10 @@ const RentModal = () => {
 
   let bodyContent = (
     <div className="flex flex-col gap-8">
-      <Heading
-        title="Which of these best describes your place?"
-        subtitle="Pick a category"
-      />
-      <div
-        className="
-          grid 
-          grid-cols-1 
-          md:grid-cols-2 
-          gap-3
-          max-h-[50vh]
-          overflow-y-auto
-        "
-      >
+      <Heading title="Which of these best describes your place?" subtitle="Pick a category" />
+      <div className="grid max-h-[50vh] grid-cols-1 gap-3 overflow-y-auto md:grid-cols-2">
         {categories.map((item) => (
-          <div
-            key={item.label}
-            className="col-span-1"
-          >
+          <div key={item.label} className="col-span-1">
             <CategoryInput
               onClick={(category) => setCustomValue("category", category)}
               selected={category === item.label}
@@ -163,14 +148,8 @@ const RentModal = () => {
   if (step === STEPS.LOCATION) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Heading
-          title="Where is your place located?"
-          subtitle="Help guests find you!"
-        />
-        <CountrySelect
-          value={location}
-          onChange={(value) => setCustomValue("location", value)}
-        />
+        <Heading title="Where is your place located?" subtitle="Help guests find you!" />
+        <CountrySelect value={location} onChange={(value) => setCustomValue("location", value)} />
         <Map center={location?.latlng} />
       </div>
     );
@@ -179,10 +158,7 @@ const RentModal = () => {
   if (step === STEPS.INFO) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Heading
-          title="Share some basics about your place"
-          subtitle="What amenitis do you have?"
-        />
+        <Heading title="Share some basics about your place" subtitle="What amenitis do you have?" />
         <Counter
           onChange={(value) => setCustomValue("guestCount", value)}
           value={guestCount}
@@ -214,10 +190,7 @@ const RentModal = () => {
           title="Add a photo of your place"
           subtitle="Show guests what your place looks like!"
         />
-        <ImageUpload
-          onChange={(value) => setCustomValue("imageSrc", value)}
-          value={imageSrc}
-        />
+        <ImageUpload onChange={(value) => setCustomValue("imageSrc", value)} value={imageSrc} />
       </div>
     );
   }
@@ -253,10 +226,7 @@ const RentModal = () => {
   if (step === STEPS.PRICE) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Heading
-          title="Now, set your price"
-          subtitle="How much do you charge per night?"
-        />
+        <Heading title="Now, set your price" subtitle="How much do you charge per night?" />
         <Input
           id="price"
           label="Price"

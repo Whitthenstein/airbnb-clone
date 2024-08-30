@@ -24,13 +24,13 @@ const RegisterModal = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm<FieldValues>({
     defaultValues: {
       name: "",
       email: "",
-      password: "",
-    },
+      password: ""
+    }
   });
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
@@ -58,10 +58,7 @@ const RegisterModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
-      <Heading
-        title="Welcome to Airbnb"
-        subtitle="Create an account!"
-      />
+      <Heading title="Welcome to Airbnb" subtitle="Create an account!" />
       <Input
         id="email"
         label="Email"
@@ -91,7 +88,7 @@ const RegisterModal = () => {
   );
 
   const footerContent = (
-    <div className="flex flex-col gap-4 mt-3">
+    <div className="mt-3 flex flex-col gap-4">
       <hr />
       <Button
         outline
@@ -105,24 +102,10 @@ const RegisterModal = () => {
         icon={AiFillGithub}
         onClick={() => signIn("github")}
       />
-      <div
-        className="
-          text-neutral-500 
-          text-center 
-          mt-4 
-          font-light
-        "
-      >
+      <div className="mt-4 text-center font-light text-neutral-500">
         <p>
           Already have an account?
-          <span
-            onClick={onToggle}
-            className="
-              text-neutral-800
-              cursor-pointer 
-              hover:underline
-            "
-          >
+          <span onClick={onToggle} className="cursor-pointer text-neutral-800 hover:underline">
             {" "}
             Log in
           </span>

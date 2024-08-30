@@ -14,33 +14,16 @@ interface EmptyStateProps {
 const EmptyState: React.FC<EmptyStateProps> = ({
   title = "No exact matches",
   subtitle = "Try changing or removing some of your filters.",
-  showReset,
+  showReset
 }) => {
   const router = useRouter();
 
   return (
-    <div
-      className="
-        h-[60vh]
-        flex 
-        flex-col 
-        gap-2 
-        justify-center 
-        items-center 
-      "
-    >
-      <Heading
-        center
-        title={title}
-        subtitle={subtitle}
-      />
-      <div className="w-48 mt-4">
+    <div className="flex h-[60vh] flex-col items-center justify-center gap-2">
+      <Heading center title={title} subtitle={subtitle} />
+      <div className="mt-4 w-48">
         {showReset && (
-          <Button
-            outline
-            label="Remove all filters"
-            onClick={() => router.push("/")}
-          />
+          <Button outline label="Remove all filters" onClick={() => router.push("/")} />
         )}
       </div>
     </div>

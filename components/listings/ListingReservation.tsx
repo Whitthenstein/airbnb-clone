@@ -22,22 +22,11 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
   onChangeDate,
   onSubmit,
   disabled,
-  disabledDates,
+  disabledDates
 }) => {
   return (
-    <div
-      className="
-      bg-white 
-        rounded-xl 
-        border-[1px]
-      border-neutral-200 
-        overflow-hidden
-      "
-    >
-      <div
-        className="
-      flex flex-row items-center gap-1 p-4"
-      >
+    <div className="overflow-hidden rounded-xl border-[1px] border-neutral-200 bg-white">
+      <div className="flex flex-row items-center gap-1 p-4">
         <div className="text-2xl font-semibold">$ {price}</div>
         <div className="font-light text-neutral-600">night</div>
       </div>
@@ -49,24 +38,10 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
       />
       <hr />
       <div className="p-4">
-        <Button
-          disabled={disabled}
-          label="Reserve"
-          onClick={onSubmit}
-        />
+        <Button disabled={disabled} label="Reserve" onClick={onSubmit} />
       </div>
       <hr />
-      <div
-        className="
-          p-4 
-          flex 
-          flex-row 
-          items-center 
-          justify-between
-          font-semibold
-          text-lg
-        "
-      >
+      <div className="flex flex-row items-center justify-between p-4 text-lg font-semibold">
         <div>Total</div>
         <div>$ {totalPrice}</div>
       </div>

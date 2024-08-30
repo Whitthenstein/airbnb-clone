@@ -13,7 +13,7 @@ delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconUrl: markerIcon.src,
   iconRetinaUrl: markerIcon2x.src,
-  shadowUrl: markerShadow.src,
+  shadowUrl: markerShadow.src
 });
 
 interface MapProps {
@@ -32,10 +32,7 @@ const Map: React.FC<MapProps> = ({ center }) => {
       scrollWheelZoom={false}
       className="h-[35vh] rounded-lg"
     >
-      <TileLayer
-        url={url}
-        attribution={attribution}
-      />
+      <TileLayer url={url} attribution={attribution} />
       {center && <Marker position={center as L.LatLngExpression} />}
     </MapContainer>
   );

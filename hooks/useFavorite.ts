@@ -52,7 +52,7 @@ const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
 
   return {
     hasFavorited,
-    toggleFavorite,
+    toggleFavorite
   };
 };
 

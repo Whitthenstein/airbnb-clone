@@ -25,12 +25,12 @@ const LoginModal = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm<FieldValues>({
     defaultValues: {
       email: "",
-      password: "",
-    },
+      password: ""
+    }
   });
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
@@ -38,7 +38,7 @@ const LoginModal = () => {
 
     signIn("credentials", {
       ...data,
-      redirect: false,
+      redirect: false
     }).then((callback) => {
       setIsLoading(false);
 
@@ -61,10 +61,7 @@ const LoginModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
-      <Heading
-        title="Welcome back"
-        subtitle="Login to your account!"
-      />
+      <Heading title="Welcome back" subtitle="Login to your account!" />
       <Input
         id="email"
         label="Email"
@@ -86,7 +83,7 @@ const LoginModal = () => {
   );
 
   const footerContent = (
-    <div className="flex flex-col gap-4 mt-3">
+    <div className="mt-3 flex flex-col gap-4">
       <hr />
       <Button
         outline
@@ -100,20 +97,10 @@ const LoginModal = () => {
         icon={AiFillGithub}
         onClick={() => signIn("github")}
       />
-      <div
-        className="
-      text-neutral-500 text-center mt-4 font-light"
-      >
+      <div className="mt-4 text-center font-light text-neutral-500">
         <p>
           First time using Airbnb?
-          <span
-            onClick={onToggle}
-            className="
-              text-neutral-800
-              cursor-pointer 
-              hover:underline
-            "
-          >
+          <span onClick={onToggle} className="cursor-pointer text-neutral-800 hover:underline">
             {" "}
             Create an account
           </span>

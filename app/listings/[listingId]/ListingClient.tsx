@@ -19,7 +19,7 @@ import ListingReservation from "@/components/listings/ListingReservation";
 const initialDateRange = {
   startDate: new Date(),
   endDate: new Date(),
-  key: "selection",
+  key: "selection"
 };
 
 interface ListingClientProps {
@@ -33,7 +33,7 @@ interface ListingClientProps {
 const ListingClient: React.FC<ListingClientProps> = ({
   listing,
   reservations = [],
-  currentUser,
+  currentUser
 }) => {
   const loginModal = useLoginModal();
   const router = useRouter();
@@ -44,7 +44,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
     reservations.forEach((reservation: any) => {
       const range = eachDayOfInterval({
         start: new Date(reservation.startDate),
-        end: new Date(reservation.endDate),
+        end: new Date(reservation.endDate)
       });
 
       dates = [...dates, ...range];
@@ -72,7 +72,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
         totalPrice,
         startDate: dateRange.startDate,
         endDate: dateRange.endDate,
-        listingId: listing?.id,
+        listingId: listing?.id
       })
       .then(() => {
         toast.success("Listing reserved!");
@@ -101,12 +101,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
 
   return (
     <Container>
-      <div
-        className="
-          max-w-screen-lg 
-          mx-auto
-        "
-      >
+      <div className="mx-auto max-w-screen-lg">
         <div className="flex flex-col gap-6">
           <ListingHead
             title={listing.title}
@@ -115,15 +110,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
             id={listing.id}
             currentUser={currentUser}
           />
-          <div
-            className="
-              grid 
-              grid-cols-1 
-              md:grid-cols-7 
-              md:gap-10 
-              mt-6
-            "
-          >
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-7 md:gap-10">
             <ListingInfo
               user={listing.user}
               category={category}
@@ -133,14 +120,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
               bathroomCount={listing.bathroomCount}
               locationValue={listing.locationValue}
             />
-            <div
-              className="
-                order-first 
-                mb-10 
-                md:order-last 
-                md:col-span-3
-              "
-            >
+            <div className="order-first mb-10 md:order-last md:col-span-3">
               <ListingReservation
                 price={listing.price}
                 totalPrice={totalPrice}

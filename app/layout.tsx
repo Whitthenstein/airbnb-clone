@@ -14,18 +14,14 @@ import getCurrentUser from "../actions/getCurrentUser";
 
 export const metadata = {
   title: "Airbnb Clone",
-  description: "Airbnb Clone Portfolio Project",
+  description: "Airbnb Clone Portfolio Project"
 };
 
 const font = Nunito({
-  subsets: ["latin"],
+  subsets: ["latin"]
 });
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const currentUser = await getCurrentUser();
 
   return (
