@@ -9,7 +9,7 @@ declare global {
   var cloudinary: any;
 }
 
-const uploadPreset = "s9rxehnh";
+const uploadPreset = "airbnb_clone_upload_preset";
 
 interface ImageUploadProps {
   onChange: (value: string) => void;
